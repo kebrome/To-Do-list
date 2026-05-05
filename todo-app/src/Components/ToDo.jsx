@@ -3,7 +3,7 @@ import ToDoList from "./ToDoList";
 import { Link } from "react-router-dom";
 import { TaskContext } from "./TaskContext";
 function ToDo() {
-  const { todos, setTodos } = useContext(TaskContext);
+  const { todos, setTodos, disc } = useContext(TaskContext);
   const [Tasks, setTasks] = useState([]);
   // const Data = new Date().toJSON().slice(0, 10);
   useEffect(() => {
@@ -28,9 +28,16 @@ function ToDo() {
           </p>
           <p className="text-gray-500 italic text-lg mt-2">- Mark Twain</p>
         </div>
-        <div className="w-full sm:w-5/6 lg:w-2/3 rounded-lg shadow-md  p-6 mx-8 mb-6  flex flex-col items-center ">
+        <div className="w-full sm:w-5/6 lg:w-2/3 rounded-lg shadow-md border-red-900  p-6 mx-8 mb-6  flex flex-col items-center ">
           {Tasks.length > 0 ? (
-            Tasks.map((task, index) => <ToDoList key={index} task={task} />)
+            Tasks.map((task, index) => (
+              <ToDoList
+                key={index}
+                task={task}
+                setTask={setTasks}
+                discr={disc}
+              />
+            ))
           ) : (
             <p className="text-gray-500 text-center">No task available</p>
           )}
