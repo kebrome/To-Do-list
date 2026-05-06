@@ -4,14 +4,9 @@ export const TaskContext = createContext();
 
 function TaskContextProvider({ children }) {
   const [todos, setTodos] = useState([]);
-  const [newTask, setNewTask] = useState(null);
-  const [disc, setDisc] = useState("");
-  const ab = 22;
-
-  function name(params) {}
 
   return (
-    <TaskContext.Provider value={{ todos, setTodos, disc, setDisc }}>
+    <TaskContext.Provider value={{ todos, setTodos }}>
       {children}
     </TaskContext.Provider>
   );

@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <TaskContextProvider>
-        <div className="bg-slate-800 min-h-screen">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
           <Routes>
             <Route path="/" element={<ToDo />} />
             <Route path="/addtask" element={<AddTask />} />
